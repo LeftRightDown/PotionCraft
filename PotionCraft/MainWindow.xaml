@@ -1,0 +1,13 @@
+﻿<Window x:Class="PotionCraft.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PotionCraft"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="530" Width="800" Background="{x:Null}">
+    <Grid Background="#FF1E2020">
+        <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden"/>
+
+    </Grid>
+</Window>

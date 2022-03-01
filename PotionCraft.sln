@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotionCraft", "PotionCraft\PotionCraft.csproj", "{F8F5182A-71C4-4849-B4DC-69FF3AEB036A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8F5182A-71C4-4849-B4DC-69FF3AEB036A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8F5182A-71C4-4849-B4DC-69FF3AEB036A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8F5182A-71C4-4849-B4DC-69FF3AEB036A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8F5182A-71C4-4849-B4DC-69FF3AEB036A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84FE26D5-A536-4466-A9C9-30D25BD698DF}
+	EndGlobalSection
+EndGlobal

@@ -24,8 +24,8 @@ namespace PotionCraft
         {
             InitializeComponent();
             TitleBar.Content = "Potion Craft Academy";
+
         }
-        
         private void NavigationButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -43,7 +43,7 @@ namespace PotionCraft
 
                     @"
                      Designed and Programed By: Zachary Tan
-                     Debugging Assistance from: Mack, Pearson-Muggli
+                     Debugging & Structural Assistance from: Mack, Pearson-Muggli
                      Additional Code reused from in class group demos.
                     ",
                     "CREDITS"
@@ -54,6 +54,9 @@ namespace PotionCraft
                     Environment.Exit(0);
                     break;
             }
+
+
+
 
 
         }

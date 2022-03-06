@@ -13,6 +13,7 @@
         <Button x:Name="ButtonTwo" Content="Credits" HorizontalAlignment="Left" Margin="27,209,0,0" VerticalAlignment="Top" Height="68" Width="193" Click="NavigationButton_Click"/>
         <Button x:Name="ButtonThree" Content="Exit" HorizontalAlignment="Left" Margin="27,327,0,0" VerticalAlignment="Top" Height="68" Width="193" Click="NavigationButton_Click"/>
         <Label x:Name="TitleBar" Content="" HorizontalAlignment="Left" Margin="286,29,0,0" VerticalAlignment="Top" Height="71" Width="466" Background="#FFF3F3F3"/>
+        <TextBlock x:Name="Reciupes" HorizontalAlignment="Left" Margin="415,170,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="207" Width="227"/>
 
     </Grid>
 </Page>

@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace PotionCraft
 {
-    interface IItem
+    public class Item
     {
         public string Name { get; set; }
         public string Description { get; set; }
         public float Quantity { get; set; }
-        public Recipe Formula { get; set; }
+        public Recipe Formula { get; set { Name = String.Empty}
         public float Price { get; set; }
 
+        
+       enum Measurement {Cup = 1, Tsp = 48,Tbs =16 }
 
-       
+        
 
     }
 }

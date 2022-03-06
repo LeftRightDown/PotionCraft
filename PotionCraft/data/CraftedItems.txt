@@ -1,0 +1,3 @@
+KEY=Chamomile Tea~1 cup~Calms your soul~2f~VALUE=1 cup Water,1tsp Chamomile
+KEY=Sleeping Potion~2 cups~Drowsiness is a side effect~5f
+VALUE=1 cup Chamomile Tea,1/16 teaspoon Ashwagandha,1/4 teaspoon dried Lavender,1/4 teaspoon Lemon Balm

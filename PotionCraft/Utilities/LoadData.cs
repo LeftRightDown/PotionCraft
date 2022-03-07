@@ -17,7 +17,9 @@ namespace PotionCraft
 
         public static string[] LoadLinesFromFile(string path)
         {
-           
+
+            //temp list
+            List<Item> item = new List<Item>();
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] Key = s.Split('~');
@@ -35,6 +37,8 @@ namespace PotionCraft
                 {
                    i.Formula.Name = Value[2];
                    i.Formula.Quantity = float.Parse(Value[1]);
+                    
+                    item.add(i);
                 }
                   
             }

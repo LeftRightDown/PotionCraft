@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Console;
 
 namespace PotionCraft
 {
@@ -14,17 +15,17 @@ namespace PotionCraft
         public Recipe Formula { get; set; }
 
         //Creating Items w/ Recipies 
-        public Dictionary<string, List<Item>> Recipes;
+        public Dictionary<string, List<Item>> Recipes = new Dictionary<string, List<Item>>();
         
         private void SetUpItems()
         {
-            List<Item>  = LoadData.LoadLinesFromFile("../../data/Crafteditems");
-            for (int i = 0; i < contents.Length; i += 2)
+            string[] TempItem = LoadData.LoadLinesFromFile("../../data/Crafteditems");
+            for (int i = 0; i < TempItem.Length; i += 2)
             {
-                Terms.Add(contents[i], contents[i + 1]);
+                Recipes.Add(TempItem[i], TempItem.ToList<Item>;
 
             }
-            foreach (KeyValuePair<string, string> x in Items.Recipes)
+            foreach (KeyValuePair<string, string> x in Recipes)
             {
                 WriteLine($"{x.Key}: {x.Value}");
             }

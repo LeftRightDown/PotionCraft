@@ -10,7 +10,7 @@ namespace PotionCraft
     {
 
         public string Name { get; set; }
-       public string Quantity {  get; set; }
+       public float Quantity {  get; set; }
 
     }
 }

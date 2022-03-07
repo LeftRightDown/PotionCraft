@@ -8,7 +8,11 @@ namespace PotionCraft
 {
     public class Utility
     {
-        
+        public void print(string message)
+        {
+            print(message);
+
+        }
 
     }
 }

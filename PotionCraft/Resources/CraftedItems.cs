@@ -22,7 +22,7 @@ namespace PotionCraft
             string[] TempItem = LoadData.LoadLinesFromFile("../../data/Crafteditems");
             for (int i = 0; i < TempItem.Length; i += 2)
             {
-                Recipes.Add(TempItem[i], TempItem.ToList<Item>;
+                Recipes.Add(TempItem[i], TempItem[i+1]);
 
             }
             foreach (KeyValuePair<string, string> x in Recipes)

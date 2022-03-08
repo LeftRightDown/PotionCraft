@@ -9,8 +9,10 @@ namespace PotionCraft
     public class Recipe
     {
 
-        public string Name { get; set; }
-       public float Quantity {  get; set; }
+        public string Name { get; set; } = string.Empty;
+        public  float Quantity { get; set; } = 0;
 
+
+ 
     }
 }

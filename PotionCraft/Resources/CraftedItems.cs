@@ -7,31 +7,37 @@ using static System.Console;
 
 namespace PotionCraft
 {
-    public class CraftedItems: Item
+    public class CraftedItems : Item
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public float Quantity { get; set; }
-        public Recipe Formula { get; set; }
-
-        //Creating Items w/ Recipies 
-        public Dictionary<string, List<Item>> Recipes = new Dictionary<string, List<Item>>();
         
-        private void SetUpItems()
+
+        //Items w/Dictionary Collection
+        public Dictionary<string, List<Item>> Recipes = new Dictionary<string, List<Item>>();
+
+        //Extracting Items from External data
+        public static string SetUpItems()
         {
-            string[] TempItem = LoadData.LoadLinesFromFile("../../data/Crafteditems");
-            for (int i = 0; i < TempItem.Length; i += 2)
-            {
-                Recipes.Add(TempItem[i], TempItem[i+1]);
+            string output = "";
+            List<Item> Newlist = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
 
-            }
-            foreach (KeyValuePair<string, string> x in Recipes)
+            foreach (Item item in Newlist)
             {
-                WriteLine($"{x.Key}: {x.Value}");
+                output = $"{item.Name}: {item.Description} {Environment.NewLine}{item.FormulaName}: {item.FormulaQuantity} ";
             }
+            //for (int i = 0; i < TempItem.Length; i += 2)
+            //{
+            //    Recipes.Add(TempItem[i],);
+
+            //}
+
+            //    foreach (KeyValuePair<string, List<Item>> x in Recipes)
+            //    {
+            //        WriteLine($"{x.Key}: {x.Value}");
+            //    }
+            //}
+
+            return output;
         }
-
-
-
     }
 }
+

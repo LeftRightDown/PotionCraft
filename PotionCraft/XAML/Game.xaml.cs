@@ -26,6 +26,7 @@ namespace PotionCraft
             TitleBar.Content = "Potion Craft Academy";
 
         }
+        #region "Button Inputs"
         private void NavigationButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -54,11 +55,7 @@ namespace PotionCraft
                     Environment.Exit(0);
                     break;
             }
-
-
-
-
-
         }
+        #endregion
     }
 }

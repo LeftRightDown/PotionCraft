@@ -15,34 +15,35 @@ namespace PotionCraft
         }
 
 
-        public static string[] LoadLinesFromFile(string path)
+        public static List<Item> LoadLinesFromFile(string path)
         {
-
+            
             //temp list
-            List<Item> item = new List<Item>();
+            List<Item> Lines = new List<Item>();
             foreach (string s in File.ReadAllLines(path))
             {
                 string[] Key = s.Split('~');
-                string[]  Value = s.Split(',');
-                Item i = new Item();
+                string[] Value = s.Split(',');
+                Item i = new Item();   
+                Recipe x = new Recipe();
                 if (s.Contains("KEY="))
                 {
                     i.Name = Key[1];
-                    i.Quantity = float.Parse(Key[0]);
-                    i.Description = Key[2];
-                    i.Price = float.Parse(Key[3]);
+                    i.Quantity = float.Parse(Key[2]);
+                    i.Description = Key[3];
+                    i.Price = float.Parse(Key[4]);
                     
                 }
                 else if (s.Contains("VALUE="))
                 {
-                   i.Formula.Name = Value[2];
-                   i.Formula.Quantity = float.Parse(Value[1]);
-                    
-                    item.add(i);
+
+                    i.FormulaName= Value[2];
+                    i.FormulaQuantity = float.Parse(Value[1]);
+
                 }
-                  
+                Lines.Add(i);
             }
-            return File.ReadAllLines(path);
+            return Lines;
         }
     }
 }

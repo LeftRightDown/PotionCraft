@@ -8,11 +8,13 @@ namespace PotionCraft
 {
     public class Utility
     {
-        public void print(string message)
+        //Prints Text to Specific Box (Class WPF DEMO)
+        public static void Print(string output)
         {
-            print(message);
+            ((MainWindow)System.Windows.Application.Current.MainWindow).Rest.Text = output;
 
         }
+
 
     }
 }

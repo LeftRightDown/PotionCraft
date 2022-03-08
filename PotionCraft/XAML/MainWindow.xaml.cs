@@ -12,23 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static PotionCraft.Utility;
 
 namespace PotionCraft
 {
     /// <summary>
-    /// Interaction logic for Page1.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class MainWindow : Window
     {
-        public Page1()
+        
+        public MainWindow()
         {
             InitializeComponent();
+            DisplayContent();
+            //ContentFrame.Navigate(new Game());
+            Title = "Potion Craft Academy";
         }
-
-
-        private void ContinueButton_Click(object sender, RoutedEventArgs e)
+        private void DisplayContent()
         {
-            NavigationService.Navigate(new Uri(".xaml", UriKind.Relative));
+            Print(CraftedItems.SetUpItems());
         }
     }
 }

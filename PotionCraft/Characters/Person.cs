@@ -7,11 +7,11 @@ namespace PotionCraft
 {
     public class Person
     {
-       
-        public string Name { get; set; }
+
+        public string Name { get; set; } = string.Empty;
         public float Currency { get; set; }
 
-        List<Item> Inventory { get; set; }
+        List<Item> Inventory { get; set; } = default!;
         void InventoryAdd(Item item)
         {
             Inventory.Add(item);
@@ -20,7 +20,7 @@ namespace PotionCraft
 
         void InventoryRemove(Item item)
         {
-            if (Inventory.Contains(item)) ;
+            if (Inventory.Contains(item));
         }
 
         void BuyAndSell(Item item, Item requiredItem)

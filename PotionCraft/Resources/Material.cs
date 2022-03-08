@@ -7,13 +7,14 @@ namespace PotionCraft
 {
     public class Material: Item
     {
-        public string Name { get; set ; }
-        public string Description { get; set; }
-        public float Quantity { get; set; }
-        public Recipe Formula { get; set; }
-        public float Price { get; set; }
+        public Material(string name, string description, float quantity)
+        {
+            Name = name;
+            Description = description;
+            Quantity = quantity;
+        }
 
 
-        List<Item> Ingredients => LoadData.LoadLinesFromFile("../../");
+        //string[] Ingredients => LoadData.LoadLinesFromFile("../../Ingredients.txt");
     }
 }

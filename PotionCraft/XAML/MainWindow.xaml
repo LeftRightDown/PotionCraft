@@ -8,6 +8,7 @@
         Title="MainWindow" Height="530" Width="800" Background="{x:Null}">
     <Grid Background="#FF1E2020">
         <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden"/>
+        <TextBlock x:Name="Rest" HorizontalAlignment="Left" Margin="458,298,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="128" Width="239"/>
 
     </Grid>
 </Window>

@@ -1,8 +1,8 @@
-KEY=Chamomile Tea~1 cup~Calms your soul~2f
-	VALUE=1 cup,Water
-	VALUE=1tsp,Chamomile
-KEY=Sleeping Potion~2 cups~Drowsiness is a side effect~5f
-	VALUE= 1 cup,Chamomile Tea
-	VALUE=1/16 teaspoon Ashwagandha
-	VALUE=1/4,teaspoon dried Lavender
-	VALUE=1/4,teaspoon Lemon Balm
+KEY=~Chamomile Tea~1~Calms your soul~2.0
+VALUE=,1,Water
+VALUE=,1,Chamomile
+KEY=~Sleeping Potion~2~Drowsiness is a side effect~5.3
+VALUE=,1,Chamomile Tea
+VALUE=,0.0625,Ashwagandha
+VALUE=,0.25,dried Lavender
+VALUE=,0.25,Lemon Balm

@@ -8,14 +8,11 @@ namespace PotionCraft
 {
     public class Player: Person, ICraft
     {
-         
 
-        public string Name { get; set; }
-        public float Currency { get; set; }
-
-        public Player()
+        public Player(string name, float currency)
         {
-
+            Name = name;
+            Currency = currency;
 
         }
 

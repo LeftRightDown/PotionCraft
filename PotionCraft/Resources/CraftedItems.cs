@@ -19,17 +19,20 @@ namespace PotionCraft
         //Extracting Items from External data
         public static string SetUpItems()
         {
+            items1 = Recipes.SelectMany(d => d.Value).ToList();
             string output = "";
             Item[] items = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
 
             for (int i = 0; i < items.Length ; i++)
             {
-                
+
+                //Recipes.Values = items1;
                 Recipes.Add(items[i], new List<Item>());
-                items1.Add(items[i+2]);
-                
+                items1.Add(items[i + 2]);
+
+
             }
-      
+
 
             //    foreach (KeyValuePair<string, List<Item>> x in Recipes)
             //    {

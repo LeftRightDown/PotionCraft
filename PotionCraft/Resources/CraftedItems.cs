@@ -12,23 +12,24 @@ namespace PotionCraft
         
 
         //Items w/Dictionary Collection
-        public Dictionary<string, List<Item>> Recipes = new Dictionary<string, List<Item>>();
+        public static Dictionary<Item, List<Item>> Recipes = new Dictionary<Item, List<Item>>();
+        public static List<Item> items1 = new List<Item>(); 
+
 
         //Extracting Items from External data
         public static string SetUpItems()
         {
             string output = "";
-            List<Item> Newlist = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
+            Item[] items = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
 
-            foreach (Item item in Newlist)
+            for (int i = 0; i < items.Length ; i++)
             {
-                output = $"{item.Name}: {item.Description} {Environment.NewLine}{item.FormulaName}: {item.FormulaQuantity} ";
+                
+                Recipes.Add(items[i], new List<Item>());
+                items1.Add(items[i+2]);
+                
             }
-            //for (int i = 0; i < TempItem.Length; i += 2)
-            //{
-            //    Recipes.Add(TempItem[i],);
-
-            //}
+      
 
             //    foreach (KeyValuePair<string, List<Item>> x in Recipes)
             //    {

@@ -14,9 +14,11 @@ namespace PotionCraft
 
 
         public float Quantity { get; set; }
+
+        public Recipe Formula { get; set; }
         public  string FormulaName { get; set; } = String.Empty;
 
-        public float FormulaQuantity { get; set; } = 0
+        public float FormulaQuantity { get; set; } = 0;
 
         public float Price { get; set; }
 

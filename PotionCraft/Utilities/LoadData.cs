@@ -15,17 +15,19 @@ namespace PotionCraft
         }
 
 
-        public static List<Item> LoadLinesFromFile(string path)
+        public static Item[] LoadLinesFromFile(string path)
         {
-            
+
             //temp list
             List<Item> Lines = new List<Item>();
+            Item[] line= Lines.ToArray();
             foreach (string s in File.ReadAllLines(path))
             {
+               
                 string[] Key = s.Split('~');
                 string[] Value = s.Split(',');
                 Item i = new Item();   
-                Recipe x = new Recipe();
+              
                 if (s.Contains("KEY="))
                 {
                     i.Name = Key[1];
@@ -34,16 +36,17 @@ namespace PotionCraft
                     i.Price = float.Parse(Key[4]);
                     
                 }
-                else if (s.Contains("VALUE="))
-                {
+                //else if (s.Contains("VALUE="))
+                //{
 
-                    i.FormulaName= Value[2];
-                    i.FormulaQuantity = float.Parse(Value[1]);
+                //    i.Formula.Name= Value[2];
+                //    i.Formula.Quantity = float.Parse(Value[1]);
 
-                }
-                Lines.Add(i);
+                //}
+
+                
             }
-            return Lines;
+            return line ;
         }
     }
 }

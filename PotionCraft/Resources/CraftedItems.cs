@@ -23,22 +23,20 @@ namespace PotionCraft
             string output = "";
             Item[] items = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
 
-            for (int i = 0; i < items.Length ; i++)
+            for (int i = 0; i < items.Length ; i+=2)
             {
 
                 //Recipes.Values = items1;
                 Recipes.Add(items[i], new List<Item>());
                 items1.Add(items[i + 2]);
 
-
             }
 
-
-            //    foreach (KeyValuePair<string, List<Item>> x in Recipes)
-            //    {
-            //        WriteLine($"{x.Key}: {x.Value}");
-            //    }
-            //}
+            foreach (KeyValuePair<Item, List<Item>> x in Recipes)
+            {
+                output += $"{x.Key.Name}: {x.Value}";
+            }
+        
 
             return output;
         }

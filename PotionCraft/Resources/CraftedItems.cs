@@ -27,7 +27,7 @@ namespace PotionCraft
             {
 
                 //Recipes.Values = items1;
-                Recipes.Add(items[i], new List<Item>());
+                Recipes.Add(items[i], items1);
                 items1.Add(items[i + 2]);
 
             }

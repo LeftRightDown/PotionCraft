@@ -33,5 +33,54 @@ namespace PotionCraft
         {
             Print(CraftedItems.SetUpItems());
         }
+
+            
+        #region "Button Inputs"
+        private void NavigationButton_Click(object sender, RoutedEventArgs e)
+        {
+          
+            Button button = (Button)sender;
+           
+            switch (button.Name)
+            {
+                case "ButtonOne":
+                    //Start
+                    ChangeButton();
+                    break;
+                case "ButtonTwo":
+                    //Credits
+                    
+                    MessageBox.Show
+                    (
+
+                    @"
+                     Designed and Programed By: Zachary Tan
+                     Debugging & Structural Assistance from: Mack,Pearson-Muggli
+                     Additional Code reused from in class group demos.
+                    ",
+                    "CREDITS"
+                    );
+                    break;
+                case "ButtonThree":
+                    //Exit
+                    
+                    Environment.Exit(0);
+                    break;
+            }
+        }
+
+        private void ChangeButton()
+        {
+            ButtonOne.Visibility = Visibility.Hidden;
+            ButtonTwo.Visibility = Visibility.Hidden;
+            ButtonThree.Visibility = Visibility.Hidden;
+
+            ButtonFour.Visibility = Visibility.Visible;
+            ButtonFive.Visibility = Visibility.Visible;
+            ButtonSix.Visibility = Visibility.Visible;
+
+        }
+ 
+        #endregion
     }
 }

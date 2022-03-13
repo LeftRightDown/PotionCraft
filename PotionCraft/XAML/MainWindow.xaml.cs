@@ -22,35 +22,42 @@ namespace PotionCraft
     public partial class MainWindow : Window
     {
         CraftedItems Crafting = new CraftedItems();
+        Player player = new Player("Anon", 20000);
         public MainWindow()
         {
             InitializeComponent();
+            GameSetup();
+            DisplayInventory("Vendor");
             
-            DisplayContent();
-            //ContentFrame.Navigate(new Game());
             Title = "Potion Craft Academy";
         }
 
-
-        private void Gamsetup()
+        #region "Setup"
+        private void GameSetup()
         {
-            Crafting.SetUpItems();
+            Vendor.SetupVendor(Material.Ingredients);
+            //Crafting.SetUpItems();
 
         }
 
-        private void DisplayContent()
+        private void DisplayInventory(string input)
         {
-            Crafting.SetUpItems();
-            Print(Crafting.ListDictionary(CraftedItems.DataBaseItems));
-            System.Diagnostics.Debug.WriteLine("Crafted Items are here" + Crafting.ListDictionary(CraftedItems.DataBaseItems));
-            
-        }
+            if (input == "Vendor")
+            {
+                PrintSide(DisplayList(Vendor.VendorInventory));
+            }
+            else if (input == "Player")
+            {
+                //PrintMain(Crafting.ListDictionary(CraftedItems.DataBaseItems));
+                System.Diagnostics.Debug.WriteLine("Crafted Items are here" + Crafting.ListDictionary(CraftedItems.DataBaseItems));
+            }
 
-            
+        }
+        #endregion
+
         #region "Button Inputs"
         private void MainMenuNavigation_Click(object sender, RoutedEventArgs e)
         {
-          
             Button button = (Button)sender;
            
             switch (button.Name)
@@ -64,7 +71,6 @@ namespace PotionCraft
                     
                     MessageBox.Show
                     (
-
                     @"
                      Designed and Programed By: Zachary Tan
                      Debugging & Structural Assistance from: Mack,Pearson-Muggli
@@ -96,7 +102,7 @@ namespace PotionCraft
 
         private void NavigationButton_Click(object sender, RoutedEventArgs e)
         {
-
+            string PlayerInput = "";
             Button button = (Button)sender;
 
             switch (button.Name)
@@ -107,13 +113,18 @@ namespace PotionCraft
                     break;
                 case "ButtonFive":
                     //Trader
-                   
+                    DisplayInventory("Vendor");
+                    SideBarTitle.Content = "Trader Inventory";
                   
                     break;
                 case "ButtonSix":
                     //Inventory
-                    
-                    
+                    DisplayInventory("Player");
+                    SideBarTitle.Content = "Player Inventory";
+                    break;
+                case "SubmitButton":
+                    Input.Text = PlayerInput;
+                    PrintMain(player.Craft(PlayerInput));
                     break;
             }
         }

@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800" Background="{x:Null}">
     <Grid Background="#FF1E2020">
+
         <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden" Width="800"/>
-        <Rectangle x:Name="Block" HorizontalAlignment="Left" Height="301" VerticalAlignment="Top" Width="633" Fill="White" Margin="79,73,0,0"/>
-        <TextBlock x:Name="MainText" HorizontalAlignment="Left" Margin="93,96,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="254" Width="605"/>
+        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,83,0,0" Width="218" Height="339" Background="White">
+            <TextBlock x:Name="SideText" TextWrapping="Wrap" Text="TextBlock" Height="315" Width="190" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,10,0,0" />
+
+        </ScrollViewer>
+
         <Rectangle x:Name="Block_Copy" Fill="White" Margin="64,432,64,-2" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -26,6 +30,12 @@
         <Button x:Name="ButtonFour" Content="Craft" HorizontalAlignment="Left" Margin="98,451,0,9" Width="171" Click="NavigationButton_Click" Visibility="Visible"/>
         <Button x:Name="ButtonFive" Content="Trader" HorizontalAlignment="Center" Margin="0,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
         <Button x:Name="ButtonSix" Content="Inventory" HorizontalAlignment="Left" Margin="530,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
+        <ScrollViewer Width="500" Height="355" Margin="272,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White">
+            <TextBlock x:Name="MainText" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" Height="335" Width="468" />
+        </ScrollViewer>
+        <Label x:Name="SideBarTitle" Content="Label" HorizontalAlignment="Left" Margin="28,26,0,0" VerticalAlignment="Top" Background="White" Height="52" Width="218" FontSize="24"/>
+        <TextBox x:Name="Input" HorizontalAlignment="Left" Margin="272,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="31" Background="#FFB9B2B2"/>
+        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="605,14,0,0" VerticalAlignment="Top" Height="23" Width="76" Click="NavigationButton_Click"/>
 
     </Grid>
 </Window>

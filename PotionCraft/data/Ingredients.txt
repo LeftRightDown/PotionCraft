@@ -1,16 +1,7 @@
 ﻿VALUE=,1,Water,Ancient liquid,5
 VALUE=,1,dried Chamomile,Still being studied,0.5
-END~
-VALUE=,1,Chamomile Tea,Calms your soul,2.0
 VALUE=,0.0625,Ashwagandha,Helps Reduce stress,3
-VALUE=,0.25,dried Lavender,Something smells good,6
 VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
-END~
 VALUE=,3,Mint,Great for cleaning and digestion,1.5
-VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
 VALUE=,0.25,dried Lavender,Something smells good,6
-VALUE=,1,Water,Ancient liquid,5
-END~
 VALUE=,3,Ginger,Good Luck charm,0.5
-VALUE=,1,Water,Ancient liquid,5
-END~

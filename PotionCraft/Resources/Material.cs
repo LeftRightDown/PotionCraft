@@ -6,7 +6,11 @@ using System.Text;
 namespace PotionCraft
 {
     public class Material: Item
-    {
+    { 
+        
+        
+        public static List<Item> Ingredients = LoadData.LoadLinesFromFile("../../../data/Ingredients.txt");
+       
         public Material(string name, string description, float quantity)
         {
             Name = name;
@@ -15,6 +19,6 @@ namespace PotionCraft
         }
 
 
-        List<Item> Ingredients = LoadData.LoadLinesFromFile("../../Ingredients.txt");
+       
     }
 }

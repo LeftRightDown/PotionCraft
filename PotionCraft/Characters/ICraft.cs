@@ -8,6 +8,9 @@ namespace PotionCraft
 {
     interface ICraft
     {
-        void Craft();
+       string Craft(string itemname)
+        {
+            return "";
+        }
     }
 }

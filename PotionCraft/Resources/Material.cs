@@ -15,6 +15,6 @@ namespace PotionCraft
         }
 
 
-        //string[] Ingredients => LoadData.LoadLinesFromFile("../../Ingredients.txt");
+        List<Item> Ingredients = LoadData.LoadLinesFromFile("../../Ingredients.txt");
     }
 }

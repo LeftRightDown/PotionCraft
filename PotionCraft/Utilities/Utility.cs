@@ -15,5 +15,12 @@ namespace PotionCraft
             //((MainWindow)System.Windows.Application.Current.MainWindow.Content).MainText.Text = output;
         }
 
+
+        public static void Display(List<Item> list)
+        {
+           list.ForEach(item => Console.WriteLine(item.ToString()));
+            
+        }
+
     }
 }

@@ -8,24 +8,28 @@ namespace PotionCraft
 {
     public class Item
     {
-        public string Name { get; set; } = String.Empty;
+        public string Type = "";
+        public string Name = "";
 
-        public string Description { get; set; } = String.Empty;
+        public string Description = "";
 
 
-        public float Quantity { get; set; }
+        public float Quantity;
 
-        public Recipe Formula { get; set; }
-        public  string FormulaName { get; set; } = String.Empty;
+        //public Recipe Formula { get; set; }
+        //public string FormulaName { get; set; } = "";
 
-        public float FormulaQuantity { get; set; } = 0;
+        //public float FormulaQuantity { get; set; } = 0;
 
-        public float Price { get; set; }
+        public float Price;
 
 
         enum Measurement { Cup = 1, Tsp = 48, Tbs = 16 }
 
    
+
+
+  
         
     }
 }

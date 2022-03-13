@@ -18,7 +18,7 @@ namespace PotionCraft
 
         
 
-        void ICraft.Craft(Recipe recipe)
+        void ICraft.Craft()
         {
 
 

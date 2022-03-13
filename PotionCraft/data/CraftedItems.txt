@@ -1,8 +1,26 @@
 KEY=~Chamomile Tea~1~Calms your soul~2.0
-VALUE=,1,Water
-VALUE=,1,Chamomile
+VALUE=,1,Water,Ancient liquid,5
+VALUE=,1,dried Chamomile,Still being studied,0.5
+END~
 KEY=~Sleeping Potion~2~Drowsiness is a side effect~5.3
-VALUE=,1,Chamomile Tea
-VALUE=,0.0625,Ashwagandha
-VALUE=,0.25,dried Lavender
-VALUE=,0.25,Lemon Balm
+VALUE=,1,Chamomile Tea,Calms your soul,2.0
+VALUE=,0.0625,Ashwagandha,Helps Reduce stress,3
+VALUE=,0.25,dried Lavender,Something smells good,6
+VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
+END~
+KEY=~Protection Potion~1~Creates aura of protection~3.0
+VALUE=,1,Blackberry Leaf,Wards off evil spirits,2.3
+VALUE=,2,Garlic,For intense cleansing,1.5
+VALUE=,3,Ginger,Good Luck charm,0.5
+VALUE=,1,Water,Ancient liquid,5
+END~
+KEY=~Healing Potion~2~Cures even the smallest wounds~4.0
+VALUE=,3,Mint,Great for cleaning and digestion,1.5
+VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
+VALUE=,0.25,dried Lavender,Something smells good,6
+VALUE=,1,Water,Ancient liquid,5
+END~
+KEY=~Easy A Tea~1~Gifts Player Easy A~2.0
+VALUE=,3,Ginger,Good Luck charm,0.5
+VALUE=,1,Water,Ancient liquid,5
+END~

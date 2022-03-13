@@ -9,7 +9,7 @@
     <Grid Background="#FF1E2020">
         <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden" Width="800"/>
         <Rectangle x:Name="Block" HorizontalAlignment="Left" Height="301" VerticalAlignment="Top" Width="633" Fill="White" Margin="79,73,0,0"/>
-        <TextBlock x:Name="MainText" HorizontalAlignment="Center" Margin="0,92,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="254" Width="605"/>
+        <TextBlock x:Name="MainText" HorizontalAlignment="Left" Margin="93,96,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="254" Width="605"/>
         <Rectangle x:Name="Block_Copy" Fill="White" Margin="64,432,64,-2" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -20,12 +20,12 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="ButtonOne" Content="Start" HorizontalAlignment="Left" Margin="98,451,0,10" Width="171" Click="NavigationButton_Click"/>
-        <Button x:Name="ButtonTwo" Content="Credits" HorizontalAlignment="Center" Margin="0,452,0,9" Width="172" Click="NavigationButton_Click"/>
-        <Button x:Name="ButtonThree" Content="Exit" HorizontalAlignment="Left" Margin="530,452,0,9" Width="172" Click="NavigationButton_Click"/>
-        <Button x:Name="ButtonFour" Content="Craft" HorizontalAlignment="Left" Margin="98,451,0,9" Width="171" Click="NavigationButton_Click" Visibility="Hidden"/>
-        <Button x:Name="ButtonFive" Content="Trader" HorizontalAlignment="Center" Margin="0,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Hidden"/>
-        <Button x:Name="ButtonSix" Content="Inventory" HorizontalAlignment="Left" Margin="530,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Hidden"/>
+        <Button x:Name="ButtonOne" Content="Start" HorizontalAlignment="Left" Margin="98,427,0,34" Width="171" Click="MainMenuNavigation_Click"/>
+        <Button x:Name="ButtonTwo" Content="Credits" HorizontalAlignment="Center" Margin="0,428,0,33" Width="172" Click="MainMenuNavigation_Click"/>
+        <Button x:Name="ButtonThree" Content="Exit" HorizontalAlignment="Left" Margin="530,428,0,33" Width="172" Click="MainMenuNavigation_Click"/>
+        <Button x:Name="ButtonFour" Content="Craft" HorizontalAlignment="Left" Margin="98,451,0,9" Width="171" Click="NavigationButton_Click" Visibility="Visible"/>
+        <Button x:Name="ButtonFive" Content="Trader" HorizontalAlignment="Center" Margin="0,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
+        <Button x:Name="ButtonSix" Content="Inventory" HorizontalAlignment="Left" Margin="530,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
 
     </Grid>
 </Window>

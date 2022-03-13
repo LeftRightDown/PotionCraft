@@ -8,6 +8,6 @@ namespace PotionCraft
 {
     interface ICraft
     {
-        void Craft(Recipe recipe);
+        void Craft();
     }
 }

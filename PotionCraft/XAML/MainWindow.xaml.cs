@@ -21,22 +21,34 @@ namespace PotionCraft
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        CraftedItems Crafting = new CraftedItems();
         public MainWindow()
         {
             InitializeComponent();
+            
             DisplayContent();
             //ContentFrame.Navigate(new Game());
             Title = "Potion Craft Academy";
         }
+
+
+        private void Gamsetup()
+        {
+            Crafting.SetUpItems();
+
+        }
+
         private void DisplayContent()
         {
-            Print(CraftedItems.SetUpItems());
+            Crafting.SetUpItems();
+            Print(Crafting.ListDictionary(CraftedItems.DataBaseItems));
+            System.Diagnostics.Debug.WriteLine("Crafted Items are here" + Crafting.ListDictionary(CraftedItems.DataBaseItems));
+            
         }
 
             
         #region "Button Inputs"
-        private void NavigationButton_Click(object sender, RoutedEventArgs e)
+        private void MainMenuNavigation_Click(object sender, RoutedEventArgs e)
         {
           
             Button button = (Button)sender;
@@ -80,7 +92,31 @@ namespace PotionCraft
             ButtonSix.Visibility = Visibility.Visible;
 
         }
- 
+
+
+        private void NavigationButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button button = (Button)sender;
+
+            switch (button.Name)
+            {
+                case "ButtonFour":
+                    //Craft
+                   
+                    break;
+                case "ButtonFive":
+                    //Trader
+                   
+                  
+                    break;
+                case "ButtonSix":
+                    //Inventory
+                    
+                    
+                    break;
+            }
+        }
         #endregion
     }
 }

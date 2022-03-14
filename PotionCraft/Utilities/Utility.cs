@@ -53,14 +53,17 @@ namespace PotionCraft
                 if (x.Name == ItemName)
                 {
                     output = "True";
+                    System.Diagnostics.Debug.WriteLine(output + x.Name + ItemName);
                 }
                 else if (x.Name != ItemName)
                 {
                     output = "False";
+                    System.Diagnostics.Debug.WriteLine(output + x.Name + ItemName);
                 }
                 else
                 {
-                    output = "";
+                    System.Diagnostics.Debug.WriteLine(output + x.Name + ItemName);
+                    output = "Does Not Exist";
                 }
               
             }   return output;

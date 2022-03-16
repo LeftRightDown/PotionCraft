@@ -12,50 +12,41 @@ namespace PotionCraft
 
 
         //Items w/Dictionary Collection
-        public static Dictionary<string, List<Item>> DataBaseItems = new Dictionary<string, List<Item>>();
+        public static Dictionary<Item, List<Item>> DataBaseItems = new Dictionary<Item, List<Item>>();
         public static List<Item> ListItem = new List<Item>();
 
 
         //Extracting Items from External data  (Assitance from Mack)
-        public void SetUpItems()
+        public static void SetUpItems()
         {
             //ListItem = Recipes.SelectMany(d => d.Value).ToList();
 
             List<Item> DatabaseOne = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
 
-            string Key = "";
-            List<Item> Temporary;
-
-
+           
+            List<Item> Temporary = new List<Item>();
+            
+            
             foreach (Item s in DatabaseOne)
             {
-
                 System.Diagnostics.Debug.WriteLine("New the Foreach loop");
-                Temporary = new List<Item>();
 
-                
-
-                if (s.Type == "KEY=")
+                //If /else statment
+                //if (s.Type == "KEY=")
+                //{
+                //    s.Name
+                //    System.Diagnostics.Debug.WriteLine("S does CONTAIN KEY= " + Key + s.Type);
+                //}
+                if (s.Type == "VALUE=")
                 {
-                    Key = s.Name;
-                    System.Diagnostics.Debug.WriteLine("S does CONTAIN KEY= " + Key + s.Type);
-                    //s.Name = DatabaseOne[i].Name;
-                    //s.Description = DatabaseOne[i].Description;
-                    //s.Quantity = DatabaseOne[i].Quantity;
-                    //s.Price = DatabaseOne[i].Price;
-
-                }
-                else if (s.Type == "VALUE=")
-                {
-                    //Temporary.Add(s);
 
                     Temporary.Add(new Item()
                     {
 
-                        Name = DatabaseOne[2].Name,
-                        Description = DatabaseOne[3].Description,
-                        Quantity = DatabaseOne[1].Quantity,
-                        Price = DatabaseOne[4].Price
+                        Name = s.Name,
+                        Description = s.Description,
+                        Quantity =s.Quantity,
+                        Price = s.Price
 
                     });
                     System.Diagnostics.Debug.WriteLine("S does CONTAIN VALUE= " + s.Name + s.Type);
@@ -63,11 +54,12 @@ namespace PotionCraft
                 else if (s.Type == "END")
                 {
 
-                    DataBaseItems.Add(Key, Temporary);
+                    DataBaseItems.Add(s, Temporary);
                     for (int i = 0; i < Temporary.Count; i++)
                     {
-                        System.Diagnostics.Debug.WriteLine("S =" + Key + Temporary[i].Name);
+                        System.Diagnostics.Debug.WriteLine("S =" + s.Name + Temporary[i].Name);
                     }
+                    Temporary.Clear();
                 }   
                 System.Diagnostics.Debug.WriteLine("Contains:" + Temporary.Count);
 
@@ -78,28 +70,40 @@ namespace PotionCraft
 
 
 
-
-
-
-
-        public string ListDictionary(Dictionary<string, List<Item>> List)
+        //Method Displays the Dictionary of Key: Name and Value: Items (Recipies)
+        public string ListDictionary()
         {
             string output = "";
 
-
-            foreach (KeyValuePair<string, List<Item>> x in List)
+            foreach (var s in DataBaseItems.Keys)
             {
-                x.Value.ForEach(delegate (Item item)
-                {
-
-
-                    output += $" {item.Description} {Environment.NewLine}";
-
-                });
-
-
-                System.Diagnostics.Debug.WriteLine("THE OUTPUT IS HERE" + output);
+                output += $"{s.Name} s {s.Description} {Environment.NewLine}";
             }
+
+            //foreach (KeyValuePair<Item, List<Item>> x in List)
+            //{
+            //    output+= $"{x.Key.Name} {x.Key.Description}";
+
+            //    x.Value.ForEach(delegate (Item item)
+            //    {
+
+
+            //        output += $" {item.Name} {item.Description} {Environment.NewLine}";
+
+            //    });
+
+
+            //    System.Diagnostics.Debug.WriteLine("THE OUTPUT IS HERE" + output);
+            //}
+
+            //foreach (var item in List.Keys)
+            //{
+            //    output += $" {item} s {item.Description} {Environment.NewLine}";
+            //}
+
+            System.Diagnostics.Debug.WriteLine("OutPut is here" + output);
+
+
             return output;
 
         }

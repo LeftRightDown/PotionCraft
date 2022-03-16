@@ -21,37 +21,46 @@ namespace PotionCraft
     /// </summary>
     public partial class MainWindow : Window
     {
-        CraftedItems Crafting = new CraftedItems();
-        Player player = new Player("Anon", 20000);
+        
+         string name;
         public MainWindow()
         {
             InitializeComponent();
             GameSetup();
-            DisplayInventory("Vendor");
             
+
             Title = "Potion Craft Academy";
         }
 
         #region "Setup"
         private void GameSetup()
         {
-            Vendor.SetupVendor(Material.Ingredients);
-            //Crafting.SetUpItems();
+            SetUpCharacters("Player",Material.StarterIngredients);
+            SetUpCharacters("Vendor",Material.Ingredients);
+            CraftedItems.SetUpItems();
+            
 
         }
 
         private void DisplayInventory(string input)
         {
+            MainText.Text = ""; 
+            Titlebar.Name = "";
             if (input == "Vendor")
-            {
-                PrintSide(DisplayList(Vendor.VendorInventory));
+            {   
+                PrintMain(DisplayList(Vendor.VendorInventory));
             }
             else if (input == "Player")
             {
-                //PrintMain(Crafting.ListDictionary(CraftedItems.DataBaseItems));
-                System.Diagnostics.Debug.WriteLine("Crafted Items are here" + Crafting.ListDictionary(CraftedItems.DataBaseItems));
+                PrintMain(DisplayList(Player.PlayerInventory));
             }
 
+        }
+
+        private void SetupCraft()
+        {
+            CraftInput.Visibility = Visibility.Visible;
+            SubmitButton.Visibility = Visibility.Visible;
         }
         #endregion
 
@@ -64,7 +73,7 @@ namespace PotionCraft
             {
                 case "ButtonOne":
                     //Start
-                    ChangeButton();
+                    ChangeScene();
                     break;
                 case "ButtonTwo":
                     //Credits
@@ -87,21 +96,27 @@ namespace PotionCraft
             }
         }
 
-        private void ChangeButton()
+        private void ChangeScene()
         {
+            //Main Menu
             ButtonOne.Visibility = Visibility.Hidden;
             ButtonTwo.Visibility = Visibility.Hidden;
             ButtonThree.Visibility = Visibility.Hidden;
+            
 
+
+            //Game Menu
             ButtonFour.Visibility = Visibility.Visible;
             ButtonFive.Visibility = Visibility.Visible;
             ButtonSix.Visibility = Visibility.Visible;
+            ButtonSeven.Visibility = Visibility.Visible;
+           
 
         }
 
 
         private void NavigationButton_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             string PlayerInput = "";
             Button button = (Button)sender;
 
@@ -109,25 +124,103 @@ namespace PotionCraft
             {
                 case "ButtonFour":
                     //Craft
-                   
+                    SetupCraft();
+                    
                     break;
                 case "ButtonFive":
                     //Trader
                     DisplayInventory("Vendor");
-                    SideBarTitle.Content = "Trader Inventory";
-                  
+                    Titlebar.Content = "Trader Inventory";
+
                     break;
                 case "ButtonSix":
                     //Inventory
                     DisplayInventory("Player");
-                    SideBarTitle.Content = "Player Inventory";
-                    break;
-                case "SubmitButton":
-                    Input.Text = PlayerInput;
-                    PrintMain(player.Craft(PlayerInput));
-                    break;
+                    PrintMain($"{Player.Currency.ToString("C")}");
+                    Titlebar.Content = "Player Inventory";
+                break;
+              
             }
         }
         #endregion
+
+
+        #region "Craft"
+
+        private void CraftInput_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> Item = new List<string>();
+            foreach (Item x in CraftedItems.DataBaseItems.Keys)
+            {
+                Item.Add(x.Name);
+                System.Diagnostics.Debug.WriteLine("HERE IS THE ITEMS ADDED TO THE DROPDOWN " + Item.Count + "" + x.Name);
+            }
+
+            var combo = sender as ComboBox;
+            combo.ItemsSource = Item;
+            combo.SelectedIndex = -1;
+
+        }
+
+
+        private void CraftInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var SelectedInputItems = sender as ComboBox;
+
+            name = SelectedInputItems.SelectedItem as string;
+            MessageBox.Show(name);
+
+        }
+
+        //search database items for a key that matches name
+
+        //get value which is a list of items
+        //look through player inventory for items in correct measurments
+        //if true item is crafted
+        //remove ingredients from player inventory
+
+        #endregion
+
+        #region "Trade"
+
+        private void TradeInput_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> TradeItem = new List<string>();
+            foreach (Item x in Vendor.VendorInventory)
+            {
+                TradeItem.Add(x.Name);
+                System.Diagnostics.Debug.WriteLine("HERE IS THE ITEMS ADDED TO THE DROPDOWN" + TradeItem.Count + x.Name);
+            }
+
+           var combo = sender as ComboBox;
+            combo.ItemsSource = TradeItem;
+            combo.SelectedIndex = -1;
+        }
+
+
+        private void TradeInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var SelectedInputItems = sender as ComboBox;
+            name = SelectedInputItems.SelectedItem as string;
+             System.Diagnostics.Debug.WriteLine("SELECTED ITEM " + name );
+        }
+
+
+
+        #endregion
+
+        //Submit Button to Iniate various Methods depending on Combobox
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            string Input;
+            Item i = new Item();
+            Input = TradeInput.SelectedItem as string;
+            //Vendor.Buy(Input,Player.PlayerInventory );
+           
+            
+            Player.CurrencyAdd(i.Price);
+            
+            System.Diagnostics.Debug.WriteLine("SUBMIT APPLICATION TO CHECK " + Input );
+        }
     }
 }

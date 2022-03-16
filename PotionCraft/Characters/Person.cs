@@ -9,28 +9,38 @@ namespace PotionCraft
     {
 
         public string Name { get; set; } = string.Empty;
-        public float Currency { get; set; }
+        public static float Currency { get; set; }
 
-        List<Item> Inventory { get; set; } = default!;
-        void InventoryAdd(Item item)
+        public static void CurrencyAdd (float item)
         {
-            Inventory.Add(item);
+            Currency += item;
+        }
+
+        public static void CurrencyRemove(float item)
+        {
+            Currency -= item;
         }
 
 
-        void InventoryRemove(Item item)
+
+        public static void Buy(string itemName, List<Item> list)
         {
-            if (Inventory.Contains(item));
+           
+            Item Results = Utility.SearchInventory(itemName, list);
+              list.Add(Results);
+              
         }
 
-        void BuyAndSell(Item item, Item requiredItem)
+        public static void Sell(string itemName, List<Item> list)
         {
-
+            Item ResultsTwo = Utility.SearchInventory(itemName, list);
+            list.Remove(ResultsTwo);
+            
         }
 
         //bool SearchInventory(Item word)
         //{
-          
+
         //    return;
         //}
 

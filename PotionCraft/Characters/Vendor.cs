@@ -8,20 +8,20 @@ namespace PotionCraft
 {
     public class Vendor : Person
     {
-       public static List<Item> VendorInventory;
-        public Vendor()
+       public static List<Item> VendorInventory = new List<Item>();
+        public Vendor(string name, float currency)
         {
-            Name = "Baba The Merchant";
-            Currency = 10000f;
-            VendorInventory = new List<Item>();
+            Name = name;
+            Currency = currency;
+            
         }
 
 
+        
 
-        public static void SetupVendor(List<Item> list)
-        {
-            VendorInventory = list;
-        }
+
+
+    
     }
 
 }

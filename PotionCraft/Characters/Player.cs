@@ -9,37 +9,23 @@ namespace PotionCraft
 {
     public class Player: Person, ICraft
     {
-        public static List<Item> PlayerInventory;
+        public static List<Item> PlayerInventory = new List<Item>();
         public Player(string name, float currency)
         {
             Name = name;
             Currency = currency;
-            PlayerInventory = new List<Item>();
-            PlayerInventory.Add(new Item(){Name = "Water"});
-            
+
         }
 
-        
-        
+        //Get player input for search method for all keys in database return value of the key
+        //write method that compares items names that were in the list that was returned from the other method
+        //method compares that items with player inventory if/else statment if true.
 
-        public string Craft(string itemname)
+        public Item Craft(string itemname)
         {
             string output = "";
-            string Results = Search(itemname);
-            if (Results == "True")
-            {
-                output = "All Items required found!";
-            }
-            else if (Results == "False")
-            {
-                output = "Missing Required Items!";
-            }
-            else
-            {
-                output = "Item Invalid";
-            }
-            return output ;
-        }
-            
+            Item Results = SearchInventory(itemname, PlayerInventory);
+            return Results;
+        }       
     }
 }

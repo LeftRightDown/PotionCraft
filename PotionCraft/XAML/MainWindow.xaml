@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PotionCraft"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800" Background="{x:Null}">
+        Title="MainWindow" Height="640" Width="500" Background="{x:Null}">
     <Grid Background="#FF1E2020">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="231*"/>
+        </Grid.ColumnDefinitions>
 
-        <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden" Width="800"/>
-        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,83,0,0" Width="218" Height="339" Background="White">
-            <TextBlock x:Name="SideText" TextWrapping="Wrap" Text="TextBlock" Height="315" Width="190" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,10,0,0" />
+        <Frame x:Name="ContentFrame" Content="" NavigationUIVisibility="Hidden" Margin="-1,-17,1,0" Height="640" VerticalAlignment="Top"/>
 
-        </ScrollViewer>
-
-        <Rectangle x:Name="Block_Copy" Fill="White" Margin="64,432,64,-2" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="Block" Fill="White" Margin="64,432,64,-1" RenderTransformOrigin="0.5,0.5" Visibility="Visible">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -24,18 +23,20 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Button x:Name="ButtonOne" Content="Start" HorizontalAlignment="Left" Margin="98,427,0,34" Width="171" Click="MainMenuNavigation_Click"/>
-        <Button x:Name="ButtonTwo" Content="Credits" HorizontalAlignment="Center" Margin="0,428,0,33" Width="172" Click="MainMenuNavigation_Click"/>
-        <Button x:Name="ButtonThree" Content="Exit" HorizontalAlignment="Left" Margin="530,428,0,33" Width="172" Click="MainMenuNavigation_Click"/>
-        <Button x:Name="ButtonFour" Content="Craft" HorizontalAlignment="Left" Margin="98,451,0,9" Width="171" Click="NavigationButton_Click" Visibility="Visible"/>
-        <Button x:Name="ButtonFive" Content="Trader" HorizontalAlignment="Center" Margin="0,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
-        <Button x:Name="ButtonSix" Content="Inventory" HorizontalAlignment="Left" Margin="530,451,0,9" Width="172" Click="NavigationButton_Click" Visibility="Visible"/>
-        <ScrollViewer Width="500" Height="355" Margin="272,46,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White">
-            <TextBlock x:Name="MainText" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" Height="335" Width="468" />
+        <ScrollViewer x:Name="ScrollViewer" Height="295" Margin="46,107,46,0" VerticalAlignment="Top" Background="White" Visibility="Visible" Grid.ColumnSpan="2">
+            <TextBlock x:Name="MainText" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" Height="260" Width="350" Visibility="Visible" />
         </ScrollViewer>
-        <Label x:Name="SideBarTitle" Content="Label" HorizontalAlignment="Left" Margin="28,26,0,0" VerticalAlignment="Top" Background="White" Height="52" Width="218" FontSize="24"/>
-        <TextBox x:Name="Input" HorizontalAlignment="Left" Margin="272,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312" Height="31" Background="#FFB9B2B2"/>
-        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="605,14,0,0" VerticalAlignment="Top" Height="23" Width="76" Click="NavigationButton_Click"/>
+        <Button x:Name="ButtonOne" Content="Start" Margin="91,452,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonTwo" Content="Credits" Margin="91,502,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonThree" Content="Exit" Margin="91,552,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonFour" Content="Craft" Margin="84,458,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonFive" Content="Trader" Margin="0,529,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
+        <Button x:Name="ButtonSix" Content="Inventory" Margin="0,458,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top"/>
+        <Label x:Name="Titlebar" Content="Potion Craft Simulator" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Height="52" Width="306" FontSize="24" Grid.Column="1" Background="White" HorizontalContentAlignment="Center"/>
+        <Button x:Name="ButtonSeven" Content="Sell" Margin="84,529,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
+        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="327,118,0,0" VerticalAlignment="Top" Height="22" Width="76" Visibility="Visible" Click="SubmitButton_Click"/>
+        <ComboBox x:Name="CraftInput" HorizontalAlignment="Left" Margin="123,118,0,0" VerticalAlignment="Top" Width="187" SelectionChanged="CraftInput_SelectionChanged" Loaded="CraftInput_Loaded" Visibility="Visible" Height="20"/>
+        <ComboBox x:Name="TradeInput" HorizontalAlignment="Left" Margin="156,152,0,0" VerticalAlignment="Top" Width="120" Loaded="TradeInput_Loaded" SelectionChanged="TradeInput_SelectionChanged"/>
 
     </Grid>
 </Window>

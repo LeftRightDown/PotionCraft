@@ -56,7 +56,6 @@ namespace PotionCraft
                 {
                     i.Type = Key[0];
                 }
-               
                 Lines.Add(i);             
                 
             }

@@ -10,14 +10,8 @@ namespace PotionCraft
         
         
         public static List<Item> Ingredients = LoadData.LoadLinesFromFile("../../../data/Ingredients.txt");
-       
-        public Material(string name, string description, float quantity)
-        {
-            Name = name;
-            Description = description;
-            Quantity = quantity;
-        }
 
+        public static List<Item> StarterIngredients = LoadData.LoadLinesFromFile("../../../data/StarterKit.txt");
 
        
     }

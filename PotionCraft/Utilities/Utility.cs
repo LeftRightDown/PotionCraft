@@ -30,7 +30,7 @@ namespace PotionCraft
             {
                foreach( Item s in list)
                {
-                output +=$"({i}) Item: {s.Name} ({s.Price.ToString("C")}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
+                output +=$" Item: {s.Name} ({s.Price.ToString("C")}) ({s.Quantity} {}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
                }
 
             }
@@ -41,11 +41,11 @@ namespace PotionCraft
         {
             if (name == "Player")
             {
-                Player.PlayerInventory = list;
+               MainWindow.player.PlayerInventory = list;
             }
             else if (name == "Vendor")
             {
-                Vendor.VendorInventory = list;
+                MainWindow.vendor.VendorInventory = list;
                
             }
         }

@@ -24,7 +24,7 @@ namespace PotionCraft
         public float Price;
 
 
-        enum Measurement { Cup = 1, Tsp = 48, Tbs = 16 }
+        public enum Measurement { Cup = 1, Tsp = 48, Tbs = 16 }
 
    
 

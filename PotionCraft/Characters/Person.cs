@@ -9,34 +9,49 @@ namespace PotionCraft
     {
 
         public string Name { get; set; } = string.Empty;
-        public static float Currency { get; set; }
+        public  float Currency { get; set; }
 
-        public static void CurrencyAdd (float item)
+        //Adds Money points to Person instance depeneding on Item price
+        public float CurrencyAdd (float currency, float item)
         {
-            Currency += item;
+            item = 5;
+            float sum = currency + item;
+
+            
+
+            return sum;
         }
 
-        public static void CurrencyRemove(float item)
+        //Removes Money points from Person instance depending on Item price
+        public  float CurrencyRemove(float currency,float item)
         {
-            Currency -= item;
+            item = 5;
+            float sum = currency - item;
+
+
+
+            return sum;
         }
 
 
 
-        public static void Buy(string itemName, List<Item> list)
+        public void BuyandSell(string itemName, List<Item> SellerList, List<Item> BuyerList)
         {
            
-            Item Results = Utility.SearchInventory(itemName, list);
-              list.Add(Results);
+            Item Results = Utility.SearchInventory(itemName, SellerList);
+              BuyerList.Add(Results);
+              SellerList.Remove(Results);
+            System.Diagnostics.Debug.WriteLine("HERE ARE buy results"+ Results.Name);
               
         }
 
-        public static void Sell(string itemName, List<Item> list)
-        {
-            Item ResultsTwo = Utility.SearchInventory(itemName, list);
-            list.Remove(ResultsTwo);
-            
-        }
+        //public  void Sell(string itemName, List<Item> SellerList, List<Item> BuyerList)
+        //{
+        //    Item sellResults = Utility.SearchInventory(itemName, SellerList);
+        //    BuyerList.Remove(sellResults);
+
+        //    System.Diagnostics.Debug.WriteLine("HERE ARE buy results" + sellResults);
+        //}
 
         //bool SearchInventory(Item word)
         //{

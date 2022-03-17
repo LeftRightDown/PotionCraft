@@ -23,20 +23,26 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <ScrollViewer x:Name="ScrollViewer" Height="295" Margin="46,107,46,0" VerticalAlignment="Top" Background="White" Visibility="Visible" Grid.ColumnSpan="2">
-            <TextBlock x:Name="MainText" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBlock" Height="260" Width="350" Visibility="Visible" />
+
+        <ScrollViewer Margin="54,118,54,201" Background="White">
+            <TextBlock x:Name="MainText" TextWrapping="Wrap" Text="TextBlock" Height="286" Width="349"/>
         </ScrollViewer>
+
         <Button x:Name="ButtonOne" Content="Start" Margin="91,452,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
         <Button x:Name="ButtonTwo" Content="Credits" Margin="91,502,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
         <Button x:Name="ButtonThree" Content="Exit" Margin="91,552,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
         <Button x:Name="ButtonFour" Content="Craft" Margin="84,458,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
         <Button x:Name="ButtonFive" Content="Trader" Margin="0,529,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
         <Button x:Name="ButtonSix" Content="Inventory" Margin="0,458,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top"/>
-        <Label x:Name="Titlebar" Content="Potion Craft Simulator" HorizontalAlignment="Center" Margin="0,25,0,0" VerticalAlignment="Top" Height="52" Width="306" FontSize="24" Grid.Column="1" Background="White" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Titlebar" Content="Potion Craft Simulator" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Height="66" Width="340" FontSize="30" Background="White" HorizontalContentAlignment="Center"/>
         <Button x:Name="ButtonSeven" Content="Sell" Margin="84,529,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
-        <Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Left" Margin="327,118,0,0" VerticalAlignment="Top" Height="22" Width="76" Visibility="Visible" Click="SubmitButton_Click"/>
-        <ComboBox x:Name="CraftInput" HorizontalAlignment="Left" Margin="123,118,0,0" VerticalAlignment="Top" Width="187" SelectionChanged="CraftInput_SelectionChanged" Loaded="CraftInput_Loaded" Visibility="Visible" Height="20"/>
-        <ComboBox x:Name="TradeInput" HorizontalAlignment="Left" Margin="156,152,0,0" VerticalAlignment="Top" Width="120" Loaded="TradeInput_Loaded" SelectionChanged="TradeInput_SelectionChanged"/>
+        <Button x:Name="CraftButton" Content="CRAFT" HorizontalAlignment="Left" Margin="327,91,0,0" VerticalAlignment="Top" Height="22" Width="76" Click="ComboBoxButton_Click" Visibility="Hidden"/>
+        <ComboBox x:Name="CraftInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" SelectionChanged="CraftInput_SelectionChanged" Loaded="CraftInput_Loaded" Visibility="Hidden" Height="22"/>
+        <Button x:Name="BuyButton" Content="BUY" HorizontalAlignment="Left" Margin="327,91,0,0" VerticalAlignment="Top" Height="22" Width="76" Visibility="Hidden" Click="ComboBoxButton_Click"/>
+        <ComboBox x:Name="BuyInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" Loaded="BuyInput_Loaded" SelectionChanged="ComboBoxInput_SelectionChanged" Height="22" Visibility="Hidden"/>
+        <Button x:Name="SellButton" Content="SELL" HorizontalAlignment="Left" Margin="327,91,0,0" VerticalAlignment="Top" Width="76" Height="22" Click="ComboBoxButton_Click" Visibility="Hidden"/>
+        <ComboBox x:Name="SellInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" Loaded="SellInput_Loaded" SelectionChanged="ComboBoxInput_SelectionChanged" Height="22" Visibility="Hidden"/>
+
 
     </Grid>
 </Window>

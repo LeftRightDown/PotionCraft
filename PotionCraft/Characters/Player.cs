@@ -9,7 +9,7 @@ namespace PotionCraft
 {
     public class Player: Person, ICraft
     {
-        public static List<Item> PlayerInventory = new List<Item>();
+        public  List<Item> PlayerInventory = new List<Item>();
         public Player(string name, float currency)
         {
             Name = name;

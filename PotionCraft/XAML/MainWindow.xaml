@@ -42,6 +42,7 @@
         <ComboBox x:Name="BuyInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" Loaded="BuyInput_Loaded" SelectionChanged="ComboBoxInput_SelectionChanged" Height="22" Visibility="Hidden"/>
         <Button x:Name="SellButton" Content="SELL" HorizontalAlignment="Left" Margin="327,91,0,0" VerticalAlignment="Top" Width="76" Height="22" Click="ComboBoxButton_Click" Visibility="Hidden"/>
         <ComboBox x:Name="SellInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" Loaded="SellInput_Loaded" SelectionChanged="ComboBoxInput_SelectionChanged" Height="22" Visibility="Hidden"/>
+        <TextBlock x:Name="CurrencyText" Margin="343,128,85,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Background="Black" Foreground="White" TextAlignment="Center" Height="33" Visibility="Hidden"/>
 
 
     </Grid>

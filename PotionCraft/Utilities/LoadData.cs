@@ -20,6 +20,7 @@ namespace PotionCraft
 
             //temp list
             List<Item> Lines = new List<Item>();
+            //List<string[]> Lines = new List<string[]>();
             //List<string> lines2 = new List<string>();
             //string[] line= Lines.ToArray();
             foreach (string s in File.ReadAllLines(path))
@@ -28,7 +29,7 @@ namespace PotionCraft
                 string[] Key = s.Split('~');
                 string[] Value = s.Split(',');
                 Item i = new Item();
-                Item x = new Item();
+      
 
                 if (s.Contains("KEY="))
                 {

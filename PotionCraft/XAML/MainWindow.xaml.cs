@@ -1,4 +1,11 @@
-﻿using System;
+﻿/* PROG 201 Craft Project
+ * Your Name:  Zachary Tan
+ * Date: 3/20/2022
+ * Credits:  
+ *     Mack,Pearson-Muggli (Tutor),
+ *     Janell Baxter (Tutor)
+ * */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,22 +31,23 @@ namespace PotionCraft
         public static Customer customer = new Customer("Bender", 100f);
         public static Player player = new Player("Anon", 5f);
         public static Vendor vendor = new Vendor("Butch the Guy", 20000f);
-         string name;
+
+        string name;
         public MainWindow()
         {
             InitializeComponent();
-            GameSetup();
-            
-
+            ItemSetUp();
+            player.test();
             Title = "Potion Craft Academy";
         }
 
         #region "Setup"
-        private void GameSetup()
+        private void ItemSetUp()
         {
+
+            CraftedItems.SetUpItems();
             SetUpCharacters("Player",Material.StarterIngredients);
             SetUpCharacters("Vendor",Material.Ingredients);
-            CraftedItems.SetUpItems();
             
 
         }
@@ -56,28 +64,36 @@ namespace PotionCraft
             {
                 PrintMain(DisplayList(player.PlayerInventory));
             }
+            else if (input == "Store")
+            {
+                
+                PrintMain(DisplayList(player.StoreCraftedItems));
+            }
 
         }
 
-        private void SetupMenu(string menuType)
+        private void MenuSetUp(string menuType)
         {
             HideAllComboBox();
             if (menuType == "Craft")
             {
              CraftInput.Visibility = Visibility.Visible;
              CraftButton.Visibility = Visibility.Visible;
+                MainText.Text = "";
             }
             else if (menuType == "Trader")
             {
               BuyInput.Visibility = Visibility.Visible;
               BuyButton.Visibility = Visibility.Visible;
-              
+                MainText.Text = "";
+
             }
             else if(menuType == "Sell")
             {
-               SellInput.Visibility = Visibility.Visible;
+              SellInput.Visibility = Visibility.Visible;
               SellButton.Visibility = Visibility.Visible;
-              
+                MainText.Text = "";
+
             }
             
         }
@@ -128,7 +144,7 @@ namespace PotionCraft
                     (
                     @"
                      Designed and Programed By: Zachary Tan
-                     Debugging & Structural Assistance from: Mack,Pearson-Muggli
+                     Debugging & Structural Assistance from: Mack,Pearson-Muggli && Janell Baxter
                      Additional Code reused from in class group demos.
                     ",
                     "CREDITS"
@@ -150,31 +166,42 @@ namespace PotionCraft
             {
                 case "ButtonFour":
                     //Craft
-                    SetupMenu("Craft");
-                    
+                    MenuSetUp("Craft");
+                    PrintMain(CraftedItems.ListDictionary());
+                    CurrencyText.Visibility = Visibility.Hidden;
+                    Titlebar.Content = "Crafting Table";
                     break;
                 case "ButtonFive":
                     //Trader
-                    SetupMenu("Trader");
+                    MenuSetUp("Trader");
                     DisplayInventory("Vendor");
                     Titlebar.Content = "Supplier Shop";
+                    CurrencyUpdate();
+                    CurrencyText.Visibility = Visibility.Visible;
 
                     break;
                 case "ButtonSix":
                     //Inventory 
                     HideAllComboBox();
                     DisplayInventory("Player");
-                    PrintMain($"{player.Currency.ToString("C")}");
                     Titlebar.Content = "Player Inventory";
+                    CurrencyUpdate();
+                    CurrencyText.Visibility = Visibility.Visible;
+
+                    
                 break;
                 case "ButtonSeven":
                     //Sell
-                    SetupMenu("Sell");
+                    MenuSetUp("Sell");
+                    DisplayInventory("Store");
                     Titlebar.Content = "Player Shop";
+                    CurrencyUpdate();
+                    CurrencyText.Visibility = Visibility.Visible;
                     break;
               
             }
         }   
+
         //Submit Button to Iniate various Methods depending on Combobox
         private void ComboBoxButton_Click(object sender, RoutedEventArgs e)
         {
@@ -226,9 +253,8 @@ namespace PotionCraft
         private void CraftInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var SelectedInputItems = sender as ComboBox;
-
             name = SelectedInputItems.SelectedItem as string;
-            MessageBox.Show(name);
+            
 
         }
 
@@ -241,7 +267,7 @@ namespace PotionCraft
 
         #endregion
 
-        #region "Trade"
+        #region "Buy and Sell"
 
         private void BuyInput_Loaded(object sender, RoutedEventArgs e)
         {
@@ -257,29 +283,31 @@ namespace PotionCraft
             combo.SelectedIndex = -1;
         }
 
-
-        private void ComboBoxInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SellInput_Loaded(object sender, RoutedEventArgs e)
+        {
+            List<string> StoreItems = new List<string>();
+            System.Diagnostics.Debug.WriteLine("ITEMS " + player.StoreCraftedItems.Count);
+            foreach (Item x in player.StoreCraftedItems)
+            {
+                StoreItems.Add(x.Name);
+                System.Diagnostics.Debug.WriteLine("STORE DROPDOWN " + StoreItems.Count + x.Name);
+            }
+            var combo = sender as ComboBox;
+            combo.ItemsSource = StoreItems;
+            combo.SelectedIndex = -1;
+        }
+         private void ComboBoxInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var SelectedInputItems = sender as ComboBox;
             name = SelectedInputItems.SelectedItem as string;
             System.Diagnostics.Debug.WriteLine("SELECTED ITEM " + name );
         }
 
-
         #endregion
 
-        private void SellInput_Loaded(object sender, RoutedEventArgs e)
+        private void CurrencyUpdate()
         {
-            List<string> StoreItems = new List<string>();
-            foreach (Item x in player.PlayerInventory)
-            {
-                StoreItems.Add(x.Name);
-                System.Diagnostics.Debug.WriteLine("PLAYER DROPDOWN " + StoreItems.Count + x.Name);
-            }
-            var combo = sender as ComboBox;
-            combo.ItemsSource = StoreItems;
-            combo.SelectedIndex = -1;
+            CurrencyText.Text = $"Cash:{Environment.NewLine}{player.Currency.ToString("C")}";
         }
-
     }
 }

@@ -39,10 +39,10 @@ namespace PotionCraft
         {
            
             Item Results = Utility.SearchInventory(itemName, SellerList);
-              BuyerList.Add(Results);
-              SellerList.Remove(Results);
-            System.Diagnostics.Debug.WriteLine("HERE ARE buy results"+ Results.Name);
-              
+            BuyerList.Add(Results);
+            SellerList.Remove(Results);
+            System.Diagnostics.Debug.WriteLine("HERE ARE buy results" + Results.Name);
+
         }
 
         //public  void Sell(string itemName, List<Item> SellerList, List<Item> BuyerList)

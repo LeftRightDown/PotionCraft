@@ -7,9 +7,10 @@ using static PotionCraft.Utility;
 
 namespace PotionCraft
 {
-    public class Player: Person, ICraft
+    public class Player : Person, ICraft
     {
-        public  List<Item> PlayerInventory = new List<Item>();
+        public List<Item> PlayerInventory = new List<Item>();
+        public List<Item> StoreCraftedItems = new List<Item>();
         public Player(string name, float currency)
         {
             Name = name;
@@ -26,6 +27,14 @@ namespace PotionCraft
             string output = "";
             Item Results = SearchInventory(itemname, PlayerInventory);
             return Results;
-        }       
+        }
+
+        public void test()
+        {
+            foreach (KeyValuePair<Item, List<Item>> x in CraftedItems.DataBaseItems)
+            {
+                StoreCraftedItems.Add(x.Key);
+            }
+        }
     }
 }

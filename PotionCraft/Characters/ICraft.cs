@@ -8,9 +8,16 @@ namespace PotionCraft
 {
     interface ICraft
     {
-       Item Craft(Item itemname)
+        Item Craft(Item craftitem, List<Item> recipe )
         {
-            return itemname;
+            if (CraftedItems.DataBaseItems.TryGetValue(craftitem, out var items))
+            {
+
+            }
+            
+            return craftitem;     
         }
+
+       
     }
 }

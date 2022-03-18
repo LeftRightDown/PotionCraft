@@ -14,12 +14,12 @@ namespace PotionCraft
         //Prints Text to Specific Box (Class WPF DEMO)
         public static void PrintMain(string output)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).MainText.Text = output;
+            ((MainWindow)System.Windows.Application.Current.MainWindow).MainText.Text += output;
            
         }
 
-        
 
+ 
         public static string DisplayList(List<Item> list)
         {
             string output = "";
@@ -30,7 +30,7 @@ namespace PotionCraft
             {
                foreach( Item s in list)
                {
-                output +=$" Item: {s.Name} ({s.Price.ToString("C")}) ({s.Quantity} {}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
+                 output +=$"Item: {s.Name} ({s.Price.ToString("C")}) ({s.Quantity}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
                }
 
             }

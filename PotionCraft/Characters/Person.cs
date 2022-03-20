@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows;
 
 namespace PotionCraft
 {
@@ -11,53 +12,94 @@ namespace PotionCraft
         public string Name { get; set; } = string.Empty;
         public  float Currency { get; set; }
 
+        public delegate float CurrencyMath(float currency, float item);
+
         //Adds Money points to Person instance depeneding on Item price
         public float CurrencyAdd (float currency, float item)
         {
-            item = 5;
-            float sum = currency + item;
-
+            System.Diagnostics.Debug.WriteLine("BEFORE TOTAL" + currency + item);
             
+            float sum = currency + item;
+            System.Diagnostics.Debug.WriteLine("AFTER TOTAL" + sum);
+
 
             return sum;
         }
 
         //Removes Money points from Person instance depending on Item price
-        public  float CurrencyRemove(float currency,float item)
+        public  float CurrencySubtract(float currency,float item)
         {
-            item = 5;
+            System.Diagnostics.Debug.WriteLine("BEFORE TOTAL" + currency + item);
+        
             float sum = currency - item;
-
+            System.Diagnostics.Debug.WriteLine("AFTER TOTAL" + currency + item);
 
 
             return sum;
         }
 
 
-
-        public void BuyandSell(string itemName, List<Item> SellerList, List<Item> BuyerList)
+        //Universal Buy and Sell method for Each person child class
+        public void Buy(string itemName, Person Seller, Person Buyer,List<Item> SellerList, List<Item> BuyerList)
         {
+            CurrencyMath Add = CurrencyAdd;
+            CurrencyMath Subtract = CurrencySubtract;
            
             Item Results = Utility.SearchInventory(itemName, SellerList);
-            BuyerList.Add(Results);
-            SellerList.Remove(Results);
-            System.Diagnostics.Debug.WriteLine("HERE ARE buy results" + Results.Name);
+            if (Results.Name == itemName)
+            {
+                if (Buyer.Currency >= Results.Price)
+                {
+                   
+                    BuyerList.Add(Results);
+                    SellerList.Remove(Results);
+                    
+                   
+                    System.Diagnostics.Debug.WriteLine("BEFORE SELLER" + Seller.Currency);
+
+                    Seller.Currency = Add(Seller.Currency, Results.Price);
+
+                    System.Diagnostics.Debug.WriteLine("AFTER SELLER" + Seller.Currency);
+                    Buyer.Currency = Subtract(Buyer.Currency, Results.Price);
+                }
+                else if (Buyer.Currency < Results.Price)
+                {
+                    MessageBox.Show("Invalid Amount");
+                }
+                
+            }
+
 
         }
 
-        //public  void Sell(string itemName, List<Item> SellerList, List<Item> BuyerList)
-        //{
-        //    Item sellResults = Utility.SearchInventory(itemName, SellerList);
-        //    BuyerList.Remove(sellResults);
+        public void Sell(string itemName, Person Seller, Person Buyer, List<Item> SellerList, List<Item> BuyerList)
+        {
 
-        //    System.Diagnostics.Debug.WriteLine("HERE ARE buy results" + sellResults);
-        //}
+            Item Results = Utility.SearchInventory(itemName, SellerList);
+            if (Results == null)
+            {
+                MessageBox.Show("No Valid Item");
+            }
+            else if (Results.Name == itemName)
+            {
+                if (Buyer.Currency >= Results.Price)
+                {
+                    BuyerList.Add(Results);
+                    SellerList.Remove(Results);
+                    System.Diagnostics.Debug.WriteLine("BEFORE SELLER" + Seller.Currency);
 
-        //bool SearchInventory(Item word)
-        //{
+                    Seller.Currency = CurrencyAdd(Seller.Currency, Results.Price);
 
-        //    return;
-        //}
+                    System.Diagnostics.Debug.WriteLine("AFTER SELLER" + Seller.Currency);
+                    Buyer.Currency = CurrencySubtract(Buyer.Currency, Results.Price);
+                }
+                else if (Buyer.Currency < Results.Price)
+                {
+                    MessageBox.Show("Invalid Amount");
+                }
 
+            }
+
+        }  
     }
 }

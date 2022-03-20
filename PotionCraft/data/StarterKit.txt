@@ -1,2 +1,2 @@
-﻿VALUE=,5,Water,Ancient liquid,5
-VALUE=,5,Dried Chamomile,Still being studied,0.5
+﻿VALUE=,5,Water,Ancient liquid,5,Cup
+VALUE=,5,Dried Chamomile,Still being studied,0.5,Tsp

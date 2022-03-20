@@ -1,26 +1,26 @@
-KEY=~Chamomile Tea~1~Calms your soul~2.0
-VALUE=,1,Water,Ancient liquid,5
-VALUE=,1,Dried Chamomile,Still being studied,0.5
+KEY=~Chamomile Tea~1~Calms your soul~2.0~Cup
+VALUE=,1,Water,Ancient liquid,5,Cup
+VALUE=,1,Dried Chamomile,Still being studied,0.5,Tsp
 END~
-KEY=~Sleeping Potion~2~Drowsiness is a side effect~5.3
-VALUE=,1,Chamomile Tea,Calms your soul,2.0
-VALUE=,0.0625,Ashwagandha,Helps Reduce stress,3
-VALUE=,0.25,Dried Lavender,Something smells good,6
-VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
+KEY=~Sleeping Potion~2~Drowsiness is a side effect~5.3~Cup
+VALUE=,1,Chamomile Tea,Calms your soul,2.0,Cup
+VALUE=,0.0625,Ashwagandha,Helps Reduce stress,3,Tsp
+VALUE=,0.25,Dried Lavender,Something smells good,6,Tsp
+VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4,Tsp
 END~
-KEY=~Protection Potion~1~Creates aura of protection~3.0
-VALUE=,1,Blackberry Leaf,Wards off evil spirits,2.3
-VALUE=,2,Garlic,For intense cleansing,1.5
-VALUE=,3,Ginger,Good Luck charm,0.5
-VALUE=,1,Water,Ancient liquid,5
+KEY=~Protection Potion~1~Creates aura of protection~3.0~Cup
+VALUE=,1,Blackberry Leaf,Wards off evil spirits,2.3,Tsp
+VALUE=,0.25,Garlic,For intense cleansing,1.5,Tsp
+VALUE=,2,Ginger,Good Luck charm,0.5,Tsp
+VALUE=,1,Water,Ancient liquid,5,Cup
 END~
-KEY=~Healing Potion~2~Cures even the smallest wounds~4.0
-VALUE=,3,Mint,Great for cleaning and digestion,1.5
-VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4
-VALUE=,0.25,Dried Lavender,Something smells good,6
-VALUE=,1,Water,Ancient liquid,5
+KEY=~Healing Potion~2~Cures even the smallest wounds~4.0~Cup
+VALUE=,2,Mint,Great for cleaning and digestion,1.5,Tsp
+VALUE=,0.25,Lemon Balm,DO NOT USE FOR LEMONADE,4,Tsp
+VALUE=,0.25,Dried Lavender,Something smells good,6,Tsp
+VALUE=,1,Water,Ancient liquid,5,Cup
 END~
-KEY=~Easy A Tea~1~Gifts Player Easy A~2.0
-VALUE=,3,Ginger,Good Luck charm,0.5
-VALUE=,1,Water,Ancient liquid,5
+KEY=~Easy A Tea~1~Gifts Player Easy A~2.0~Cup
+VALUE=,2,Ginger,Good Luck charm,0.5,Tsp
+VALUE=,1,Water,Ancient liquid,5,Cup
 END~

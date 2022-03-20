@@ -22,6 +22,9 @@ namespace PotionCraft
         //write method that compares items names that were in the list that was returned from the other method
         //method compares that items with player inventory if/else statment if true.
 
+        //search database items for a key that matches name
+
+  
         public Item Craft(string itemname)
         {
             string output = "";

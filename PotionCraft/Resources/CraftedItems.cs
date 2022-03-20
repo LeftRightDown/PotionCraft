@@ -10,7 +10,6 @@ namespace PotionCraft
     public class CraftedItems : Item
     {
 
-
         //Items w/Dictionary Collection
         public static Dictionary<Item, List<Item>> DataBaseItems = new Dictionary<Item, List<Item>>();
         public static List<Item> ListItem = new List<Item>();
@@ -23,71 +22,64 @@ namespace PotionCraft
             //ListItem = Recipes.SelectMany(d => d.Value).ToList();
 
             List<Item> DatabaseOne = LoadData.LoadLinesFromFile("../../../data/Crafteditems.txt");
-
-            Item Key = new Item();    
-
-            foreach (Item s in DatabaseOne)
-            { 
-                System.Diagnostics.Debug.WriteLine("New the Foreach loop");
-                List<Item> Temporary = new List<Item>();
-
-                for (int z = 0; z <= DataBaseItems.Keys.Count; z++)
-                {
-                    try
-                    { 
-                        //If /else statment
-                        if (s.Type == "KEY=")
+          
+                Item Key = new Item();
+                for(int x = 0; x <= 5; x++)
+                {   
+                        //Looks through each Item inside the List 
+                        foreach (Item s in DatabaseOne)
                         {
-                            Key = s;
-
-                            System.Diagnostics.Debug.WriteLine("S does CONTAIN KEY= " + Key.Name + s.Type);
-                        }
-                        else if (s.Type == "VALUE=")
-                        {
-
-                            Temporary.Add(new Item()
+                            System.Diagnostics.Debug.WriteLine("New the Foreach loop");
+                             List<Item> Temporary = new List<Item>();
+                            try
                             {
-                                Name = s.Name,
-                                Description = s.Description,
-                                Quantity = s.Quantity,
-                                Price = s.Price
+                                //If /else statment for creating dictionary based on s.Type
+                                if (s.Type == "KEY=")
+                                {
+                                    Key = s;
 
-                            });
+                                    System.Diagnostics.Debug.WriteLine("S does CONTAIN KEY= " + Key.Name + s.Type + s.QuantityType);
+                                }
+                                else if (s.Type == "VALUE=")
+                                {
+                                    Temporary.Add(new Item()
+                                    {
+                                        Name = s.Name,
+                                        Description = s.Description,
+                                        Quantity = s.Quantity,
+                                        Price = s.Price,
+                                        QuantityType = s.QuantityType,
 
-                            System.Diagnostics.Debug.WriteLine("S does CONTAIN VALUE= " + s.Name + s.Type);
-                        }
-                        else if (s.Type == "END")
-                        {
+                                    });
 
-                            for (int i = 0; i < Temporary.Count; i++)
-                            {
-                                System.Diagnostics.Debug.WriteLine("S =" + Key.Name + Temporary[i].Name);
+                                    System.Diagnostics.Debug.WriteLine("S does CONTAIN VALUE= " + s.Name + s.Type + s.QuantityType + Temporary.Count);
+                                }
+                                else if (s.Type == "END")
+                                {
+                                    for (int i = 0; i < Temporary.Count; i++)
+                                    {
+                                        System.Diagnostics.Debug.WriteLine("S =" + Key.Name + Temporary[i].Name + Temporary.Count);
+                                    }
+                                    DataBaseItems.Add(Key, Temporary);
+                                    System.Diagnostics.Debug.WriteLine("Contains TEMP LIST SOEMTHING :  " + Temporary.Count);
+
+                                    System.Diagnostics.Debug.WriteLine("Contains:" + Temporary.Count);
+                                    
+                                }
                             }
-                            DataBaseItems.Add(Key, Temporary);
-                            System.Diagnostics.Debug.WriteLine("Contains TEMP LIST SOEMTHING :  " + Temporary.Count);
-
-                            System.Diagnostics.Debug.WriteLine("Contains:" + Temporary.Count);
+                            catch (ArgumentException)
+                            {
+                                Key = null;
+                            }
                         }
-                    }
-                    catch (ArgumentException)
-                    {
-
-
-                        Key = null;
-                    }
                 }
 
-            }
             foreach (KeyValuePair<Item, List<Item>> w in DataBaseItems)
             {
                 System.Diagnostics.Debug.WriteLine("THIS IS NEW" + w.Value.Count );
             }
-
-                
+            
         }
-
-        
-
 
         //Method Displays the Dictionary of Key: Name and Value: Items (Recipies)
         public static string ListDictionary()
@@ -95,25 +87,22 @@ namespace PotionCraft
             string output = "";
 
             List<Item> item = new List<Item>();
-
+            //For each Item, List<ITEM> pair in Dictionary
             foreach (KeyValuePair<Item, List<Item>> x in DataBaseItems)
             {
                 System.Diagnostics.Debug.WriteLine("DICTIONARY LIST IS HERE " + x.Value.Count);
-                output += $"{x.Key.Name} {x.Key.Description} {Environment.NewLine}";
-                item = x.Value;
+                output += $"ITEM: {x.Key.Name} {x.Key.Description} {Environment.NewLine}";
+                item = x.Value; 
+                output += "RECIPE: ";
                 foreach (Item s in item)
                 {
-                    output += $"{s.Name} {s.Description}{Environment.NewLine}";
+                   
+                    output += $"{s.Name}, ";
                     
-
 
                     System.Diagnostics.Debug.WriteLine("THE OUTPUT IS HERE" + item.Count);
                 }
-
-                //foreach (var item in List.Keys)
-                //{
-                //    output += $" {item} s {item.Description} {Environment.NewLine}";
-                //}
+                  
 
                 System.Diagnostics.Debug.WriteLine("Output is here" + output);
 

@@ -38,9 +38,10 @@ namespace PotionCraft
                     i.Quantity = float.Parse(Key[2]);
                     i.Description = Key[3];
                     i.Price = float.Parse(Key[4]);
+                    i.QuantityType = Enum.Parse<Item.Measurement>(Key[5]);
 
 
-                    System.Diagnostics.Debug.WriteLine("THE KEY: " + i.Name + i.Type);
+                    System.Diagnostics.Debug.WriteLine("THE KEY: " + i.Name + i.QuantityType);
                 }
                 else if (s.Contains("VALUE="))
                 {
@@ -49,8 +50,9 @@ namespace PotionCraft
                     i.Quantity = float.Parse(Value[1]);
                     i.Description = Value[3];
                     i.Price = float.Parse(Value[4]);
+                    i.QuantityType = Enum.Parse<Item.Measurement>(Value[5]);
 
-                    System.Diagnostics.Debug.WriteLine("THE VALUE: " + i.Name + i.Type);
+                    System.Diagnostics.Debug.WriteLine("THE VALUE: " + i.Name + i.QuantityType);
                     //System.Diagnostics.Debug.WriteLine("THE VALUE: " + Lines.Count);
                 }
                 else if (s.Contains("END"))

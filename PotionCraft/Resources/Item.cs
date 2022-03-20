@@ -13,7 +13,7 @@ namespace PotionCraft
         public string Description = "";
         public float Quantity;
         public float Price;
-
+        public Measurement QuantityType;
         public enum Measurement 
         { 
             Cup = 1, 

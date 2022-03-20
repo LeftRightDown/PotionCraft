@@ -19,7 +19,7 @@ namespace PotionCraft
         }
 
 
- 
+        //Method to display a LIST of items.
         public static string DisplayList(List<Item> list)
         {
             string output = "";
@@ -30,13 +30,13 @@ namespace PotionCraft
             {
                foreach( Item s in list)
                {
-                 output +=$"Item: {s.Name} ({s.Price.ToString("C")}) ({s.Quantity}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
+                 output +=$"Item: {s.Name} ({s.Price.ToString("C")}) ({s.Quantity} {s.QuantityType}){Environment.NewLine}Description: {s.Description}{Environment.NewLine} {Environment.NewLine}";  
                }
 
             }
             return output;
         }
-
+        //Method is set up perons inventories
         public static void SetUpCharacters(string name,List<Item> list)
         {
             if (name == "Player")
@@ -50,32 +50,31 @@ namespace PotionCraft
             }
         }
 
-        // method that searches PEARSONS inventory for items
+        //Method that searches PEARSONS inventory for items
         public static Item SearchInventory(string ItemName,List<Item> list )
         {
-            Item w = null;
-            //IEnumerable<Item> Search = from n in list
-            //                             where n.Name.Contains(ItemName)
-            //                           select n;
+
+          
             IEnumerable<Item> Search = list
                                 .Where(n => n.Name.Contains(ItemName));
+            
             System.Diagnostics.Debug.WriteLine("HERE IS ITEMS BEING PASSED: " + ItemName);
             foreach (Item x in Search)
             {
-            
-                if (x.Name != ItemName)
+                if(x.Name != ItemName)
                 {
                     return null;
-                    
                 }
-                 return x;
+             
+                return x;
+                System.Diagnostics.Debug.WriteLine("HERE IS ITEMS BEING PASSED: " + x.Name);
             }
-            return w;
+            return null;
 
 
         }
 
-        // method that searches database for the key returning the values (list) 
+        //Method that searches database for the key returning the values (list) 
         public static List<Item> SearchDatabse(string ItemName)
         {
             string output = "";

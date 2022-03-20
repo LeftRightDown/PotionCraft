@@ -25,7 +25,7 @@
         </Rectangle>
 
         <ScrollViewer Margin="54,118,54,201" Background="White">
-            <TextBlock x:Name="MainText" TextWrapping="Wrap" Text="TextBlock" Height="286" Width="349"/>
+            <TextBlock x:Name="MainText" TextWrapping="Wrap" Height="286" Width="349" FontFamily="Rockwell"/>
         </ScrollViewer>
 
         <Button x:Name="ButtonOne" Content="Start" Margin="91,452,91,0" Click="MainMenuNavigation_Click" Height="40" VerticalAlignment="Top"/>
@@ -34,7 +34,7 @@
         <Button x:Name="ButtonFour" Content="Craft" Margin="84,458,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
         <Button x:Name="ButtonFive" Content="Trader" Margin="0,529,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
         <Button x:Name="ButtonSix" Content="Inventory" Margin="0,458,80,0" Click="NavigationButton_Click" Visibility="Hidden" HorizontalAlignment="Right" Width="154" Height="44" VerticalAlignment="Top"/>
-        <Label x:Name="Titlebar" Content="Potion Craft Simulator" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Height="66" Width="340" FontSize="30" Background="White" HorizontalContentAlignment="Center"/>
+        <Label x:Name="Titlebar" Content="Potion Craft Simulator" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Height="66" Width="340" FontSize="22" Background="White" HorizontalContentAlignment="Center" FontFamily="Rockwell Extra Bold" FontStyle="Normal" VerticalContentAlignment="Center"/>
         <Button x:Name="ButtonSeven" Content="Sell" Margin="84,529,262,0" Click="NavigationButton_Click" Visibility="Hidden" Height="44" VerticalAlignment="Top"/>
         <Button x:Name="CraftButton" Content="CRAFT" HorizontalAlignment="Left" Margin="327,91,0,0" VerticalAlignment="Top" Height="22" Width="76" Click="ComboBoxButton_Click" Visibility="Hidden"/>
         <ComboBox x:Name="CraftInput" HorizontalAlignment="Left" Margin="104,91,0,0" VerticalAlignment="Top" Width="211" SelectionChanged="CraftInput_SelectionChanged" Loaded="CraftInput_Loaded" Visibility="Hidden" Height="22"/>

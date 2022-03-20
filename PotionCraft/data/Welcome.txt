@@ -1,0 +1,5 @@
+﻿Welcome to the Potion Craft!
+This is a game where you buy materials to craft items that you sell in your shop.
+
+Currently the Game is not complete as the crafting option is still a work in progress.
+However, you inventories has been adjusted for you to be able to Buy and Sell items.

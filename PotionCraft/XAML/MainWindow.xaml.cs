@@ -5,6 +5,7 @@
  *     Mack,Pearson-Muggli (Tutor),
  *     Janell Baxter (Tutor)
  *     
+ *     Additional Code reused from in class group demos such as WPF print method.
  *     
  * */
 using System;
@@ -51,7 +52,7 @@ namespace PotionCraft
             
            
         }
-
+        //Contains Setup methods
         #region "Setup"
         //Prints Welcome Text
         private void WelcomeText()
@@ -127,7 +128,7 @@ namespace PotionCraft
             SellInput.Visibility = Visibility.Hidden;
         }
         #endregion
-
+        //Contains Methods related to Buttons
         #region "Button Inputs" 
         //Changes the Menu buttons after Start button is pressed.
         private void ChangeScene()
@@ -253,7 +254,7 @@ namespace PotionCraft
             }
         }
         #endregion
-
+        //Contains methods related to crafting
         #region "Craft"
         //Loads the Combobox list with items able to be crafted 
         private void CraftInput_Loaded(object sender, RoutedEventArgs e)
@@ -283,7 +284,7 @@ namespace PotionCraft
 
 
         #endregion
-
+        //Contains methods related to market
         #region "Buy and Sell"
         //Loads the Combobox list with items able to be bought
         private void BuyInput_Loaded(object sender, RoutedEventArgs e)
@@ -320,12 +321,13 @@ namespace PotionCraft
             name = SelectedInputItems.SelectedItem as string;
             System.Diagnostics.Debug.WriteLine("SELECTED ITEM " + name );
         }
-
-        #endregion
         //Currency Text is changed based on players current amount
         private void CurrencyUpdate()
         {
             CurrencyText.Text = $"Cash:{Environment.NewLine}{player.Currency.ToString("C")}";
         }
+
+        #endregion
+        
     }
 }
